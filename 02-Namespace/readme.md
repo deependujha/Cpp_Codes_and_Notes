@@ -222,7 +222,7 @@ namespace n2 = n1::my_namespace_2;
 
 int main(){
     cout << n1::a << endl;
-    cout << n2::a << endl;
+    cout << n2::b << endl;
 }
 ```
 
