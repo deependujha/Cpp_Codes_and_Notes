@@ -26,7 +26,7 @@ public:
 int main()
 {
     {
-        weak_ptr<A> a;
+        weak_ptr<A> a; // weak pointer is used to remove cyclic dependencies between shared_ptr
         {
             shared_ptr<A> b = make_shared<A>(5);
             cout << "count of ptr: " << b.use_count() << endl;

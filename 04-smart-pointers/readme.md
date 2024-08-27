@@ -25,6 +25,7 @@
   - Can be copied.
   - Can be null.
   - `make_shared` is used to create a weak pointer.
+  - weak pointer is used to remove cyclic dependencies between shared_ptr
 
 ---
 
@@ -65,6 +66,7 @@ int main()
     unique_ptr<A> b = move(a);
     cout<<"--------- after move ----------"<<endl;
     // a->print(); // will raise segmentation fault
+    // b.release(); // release ownership
     b->print();
 
 
@@ -125,6 +127,8 @@ int main()
 ---
 
 ## Weak Pointers
+
+- weak pointer is used to remove cyclic dependencies between shared_ptr
 
 ```cpp
 #include <bits/stdc++.h>

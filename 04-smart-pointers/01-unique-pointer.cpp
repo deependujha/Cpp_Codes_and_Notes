@@ -32,6 +32,7 @@ int main()
     unique_ptr<A> b = move(a);
     cout<<"--------- after move ----------"<<endl;
     // a->print(); // will raise segmentation fault
+    // b.release(); // release ownership
     b->print();
 
 
