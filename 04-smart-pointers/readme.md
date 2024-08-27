@@ -193,7 +193,6 @@ int main()
 
 2. By default, use unique_ptr because it has almost no overhead. If you know it will need to have several owners, use shared_ptr.
 
-
 3. When the pointer will not own the object, use raw pointers. For example, when passing an object to a function, the pointer that receives it will not own the object (it will still be alive once the function returns), so don't pass the smart pointer, pass a raw pointer.
 To pass a unique_ptr as a raw pointer to a function, the best way is to dereference it and pass it by reference. So the function is just for example "void foo(const Class& myObject)", and you call it with "foo(*myPointer)".
 Another way would be to pass the adress itself, with the method "unique_ptr.get()".
