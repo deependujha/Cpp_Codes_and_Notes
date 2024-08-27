@@ -13,7 +13,7 @@ public:
 
     ~LeakingClass(){
         cout << "destructor called" << endl;
-        delete[] ptr;
+        delete[] ptr; // comment this line to see the memory leak
     }
 };
 
@@ -21,7 +21,7 @@ int main()
 {
     while(true){
         LeakingClass* l = new LeakingClass(1000);
-        delete l;
+        delete l; // comment this line to see the memory leak
     }
         return 0;
 }
