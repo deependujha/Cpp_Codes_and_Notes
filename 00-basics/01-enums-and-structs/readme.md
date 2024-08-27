@@ -146,3 +146,20 @@ struct Point
     Point(int x, int y) : x(x), y(y) {}
 };
 ```
+
+---
+
+## Creating instances of Structs with Struct declarations
+
+```cpp
+struct Point
+{
+    int x;
+    int y;
+
+    // below `: x(x), y(y)` is the initializer list
+    Point(int x, int y) : x(x), y(y) {}
+
+}p1(1,2), p2(3,4);
+// p1 and p2 are instances of the Point struct
+```
