@@ -1,5 +1,11 @@
 # CMAKE usage
 
+## Best resource to learn about cmake
+
+- https://github.com/ttroy50/cmake-examples
+
+---
+
 - cmake is a build system generator tool for C/C++ projects.
 - It is a cross-platform tool that can generate build files for many different build systems.
 
