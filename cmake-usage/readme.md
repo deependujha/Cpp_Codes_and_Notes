@@ -57,3 +57,21 @@ cmake .. # assumes CMakeLists.txt file is in the ../ directory and you are in th
 make # run make command to build the project
 ./learn_cmake # run the executable
 ```
+
+---
+
+## Installing the executable
+
+```cmake
+install(TARGETS ${PROJECT_NAME} DESTINATION bin)
+```
+
+- `install` command is used to install the executable to the specified directory (in linux, it is `/usr/bin` by default).
+- `TARGETS` specifies the executable to be installed.
+- `DESTINATION` specifies the directory to install the executable to.
+
+> - In build directory, run `sudo make install` to install the executable to `/usr/bin` directory.
+> - `sudo` is required bcoz the executable is installed in a root directory.
+
+---
+
