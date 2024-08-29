@@ -7,7 +7,6 @@
 
 ---
 
-
 ## Basics
 
 - Cmake looks for a file named `CMakeLists.txt` in the root of your project.
@@ -75,3 +74,85 @@ install(TARGETS ${PROJECT_NAME} DESTINATION bin)
 
 ---
 
+## Print something & set/unset variables in CMake
+
+- You can print something in CMake using `message` command with different modes (`STATUS`, `WARNING`, etc.).
+- You can set/unset variables using `set` and `unset` commands.
+
+```cmake
+message(STATUS "A simple msg from Cmake file.")
+message(WARNING "A warning msg from Cmake file.")
+
+set(PYTORCH_VERSION "2.3.0")
+set(PYTORCH_MIN_VERSION "1.12.0")
+message(STATUS "Torch version ${Torch_VERSION}")
+unset(PYTORCH_VERSION)
+message(STATUS "Torch version ${Torch_VERSION}")
+```
+
+---
+
+## Use a library in your C/C++ project
+
+- Add a library to your project using `add_library` command.
+- Link the library to your executable using `target_link_libraries` command.
+- Specify the directory to search for the library using `target_link_directories` command.
+
+```cmake
+add_library(helper helper.cpp helper.h)
+
+add_executable(${PROJECT_NAME} learn_cmake.cpp)
+
+target_link_libraries(${PROJECT_NAME} helper)
+
+target_link_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+```
+
+---
+
+## `add_subdirectory`
+
+- You can add a subdirectory to your project using `add_subdirectory` command.
+- This calls `CMakeLists.txt` file in the subdirectory.
+
+---
+
+## Conditional compilation
+
+- You can use `if` and `else` commands to conditionally compile your code.
+
+```cmake
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    message(STATUS "Compiler is GNU")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    message(STATUS "Compiler is Clang")
+else()
+    message(STATUS "Unknown compiler")
+endif()
+```
+
+---
+
+## `if MSVC` (microsoft visual studio - windows)
+
+- You can use `if` command to check if the compiler is microsoft visual studio.
+
+```cmake
+if(MSVC)
+    message(STATUS "Compiler is MSVC")
+endif()
+```
+
+---
+
+## `execute_process`
+
+- You can use `execute_process` command to execute a command and get the output.
+
+```cmake
+execute_process(COMMAND echo "Hello World" OUTPUT_VARIABLE output)  # will create a directory named meow in (build directory)
+```
+
+---
+
+> There's a lot more commands in CMake, you can check them out [here](https://cmake.org/).
